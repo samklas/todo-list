@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import Header from './components/Header';
+import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
+
+
+const App = () => {
+  const [tasks, setTasks] = useState([])
+
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 1000)
+    const newTask = {
+      id,
+      ...task
+    }
+    setTasks([...tasks, newTask])
+  }
+
+  // Alla ole koodin pätkä palauttaa meille kaikki ne taskit, joiden id (tasks.id) ei vastaa poistettavan taskin (id) id:tä
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((tasks) => tasks.id !== id))
+  }
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Header title={'Task Tracker'}/>
+      {tasks.length > 0 ? <Tasks tasks={tasks} deleteTask={deleteTask}/> : 'No tasks'}
+      <AddTask addTask={addTask}/>
     </div>
-  );
+  )
 }
 
 export default App;

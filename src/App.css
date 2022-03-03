@@ -1,38 +1,70 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fredoka', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  height: 20vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header */
+header {
+  font-size: 1.2rem;
+}
+
+.tasks-container {
+  height: 500px;
+}
+
+.task h3{
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+/* Task it self */
+.task {
+  margin: 1vh 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* AddTask component */
+#field {
+  height: 3vh;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #019267;
+  outline: none;
+}
+
+
+#add {
+  margin-top: 1vh;
+  padding: 5px 20px;
+  background-color: #019267;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#add:hover {
+  opacity: 0.9;
 }
